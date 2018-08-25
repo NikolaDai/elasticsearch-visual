@@ -20,6 +20,7 @@ import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.elasticsearch.common.unit.TimeValue;
 import org.elasticsearch.common.xcontent.XContentBuilder;
 import org.elasticsearch.common.xcontent.XContentFactory;
+import org.elasticsearch.common.xcontent.XContentType;
 import org.elasticsearch.index.query.*;
 import org.elasticsearch.search.SearchHits;
 import org.junit.Before;
@@ -65,8 +66,6 @@ public class ElasticsearchTest {
      * 创建mapping，注意：每次只能创建一次
      * 创建mapping(field("indexAnalyzer","ik")该字段分词IK索引 ；field("searchAnalyzer","ik")该字段分词ik查询；具体分词插件请看IK分词插件说明)
      * 创建mapping(field("analyzer","ik")该字段分词IK索引 ；field("index","analyzed")该字段分词ik查询；具体分词插件请看IK分词插件说明)2.x版
-     * @param indices 索引名称；
-     * @param mappingType 类型
      * @throws Exception
      */
     @Test

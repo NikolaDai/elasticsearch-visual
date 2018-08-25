@@ -21,10 +21,12 @@ import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHits;
 import org.elasticsearch.search.sort.SortOrder;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -40,7 +42,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * @author liu
  * @since 2018/2/22
  */
-@RestController
+@Controller
 public class TestController {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     public final static String HOST = "10.10.13.234";
@@ -56,6 +58,11 @@ public class TestController {
 
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
+
+    @RequestMapping("/")
+    public String index() {
+        return "index";
+    }
 
     @ResponseBody
     @RequestMapping("/greeting")
